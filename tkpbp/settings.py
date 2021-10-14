@@ -89,7 +89,7 @@ if PRODUCTION:
     # KALAU SUDAH BERJALAN, kamu bisa uncomment bagian DEBUG, ALLOWED_HOSTS, dan DATABASES.
     # For increased security.
     #DEBUG = False
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'NAMA_APP.herokuapp.com']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ruangsinggah.herokuapp.com']
     DATABASES['default'] = dj_database_url.config()
     SECURE_SSL_REDIRECT = True
 
