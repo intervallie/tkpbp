@@ -10,17 +10,16 @@
 
 **Background:**
 <br>
-Di awal tahun 2020, masyarakat dunia digegerkan oleh Coronavirus Disease atau yang lebih populer dengan singkatan Covid-19. Pandemi Covid-19 memberikan pengaruh yang besar terhadap segala aspek dalam kehidupan masyarakat, terutama dari segi kesehatan mental. Di tengah kondisi pandemi yang penuh ketidakpastian ini, banyak di antara mahasiswa khususnya mahasiswa Universitas Indonesia yang merasakan kecemasan, ketakutan, keputusasaan, hilangnya motivasi belajar, dan masalah kesehatan mental lainnya. Oleh karena itu, kami memiliki gagasan untuk membangun “nama app” sebagai platform untuk meningkatkan kesadaran pentingnya kesehatan mental dan sarana untuk para mahasiswa berkonsultasi mengenai kondisi kesehatan mentalnya.
+Di awal tahun 2020, masyarakat dunia digegerkan oleh Coronavirus Disease atau yang lebih populer dengan singkatan Covid-19. Pandemi Covid-19 memberikan pengaruh yang besar terhadap segala aspek dalam kehidupan masyarakat, terutama dari segi kesehatan mental. Di tengah kondisi pandemi yang penuh ketidakpastian ini, banyak di antara mahasiswa khususnya mahasiswa Universitas Indonesia yang merasakan kecemasan, ketakutan, keputusasaan, hilangnya motivasi belajar, dan masalah kesehatan mental lainnya. Oleh karena itu, kami memiliki gagasan untuk membangun aplikasi bernama Ruang Singgah sebagai platform untuk meningkatkan kesadaran pentingnya kesehatan mental dan sarana untuk para mahasiswa berkonsultasi mengenai kondisi kesehatan mentalnya.
 
-**Fitur-fitur:**
-- Quiz untuk mengecek kondisi kesehatan mental
-- Artikel memuat informasi kesehatan mental
-- Merchandise page
-- Form untuk booking konsultasi
-- Thread konsultasi secara anonim
-- Chat Room
-- Page untuk konselor agar dapat menerima dan/atau menolak jadwal konsultasi
-- Login, sign up, logout, serta forgot password
+**Fitur-fitur (Modul):**
+- Quiz untuk mengecek kondisi kesehatan mental (Teuku Shafwan Alim)
+- Artikel memuat informasi kesehatan mental (Takayuki Muhamad Rabbani)
+- Donation page (Aiko Sulaiman)
+- Form untuk booking konsultasi (Muhammad Taufiqul Mawarid Nazaruddin Lopa)
+- Thread konsultasi atau diskusi mengenai kesehatan mental dengan sesama user (Bisma Nurrauf)
+- Page untuk konselor agar dapat menerima dan/atau menolak jadwal konsultasi (Devina Fitri Handayani)
+- Login, sign up, logout, serta forgot password (Qalbun Salim Buanaputra)
 
 
 **Persona:**
