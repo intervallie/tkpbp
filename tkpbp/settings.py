@@ -88,9 +88,9 @@ PRODUCTION = os.environ.get('DATABASE_URL') is not None
 if PRODUCTION:
     # KALAU SUDAH BERJALAN, kamu bisa uncomment bagian DEBUG, ALLOWED_HOSTS, dan DATABASES.
     # For increased security.
-    #DEBUG = False
-    #ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'NAMA_APP.herokuapp.com']
-    #DATABASES['default'] = dj_database_url.config()
+    DEBUG = False
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'NAMA_APP.herokuapp.com']
+    DATABASES['default'] = dj_database_url.config()
     SECURE_SSL_REDIRECT = True
 
 
