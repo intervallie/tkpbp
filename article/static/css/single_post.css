@@ -1,0 +1,26 @@
+.content{
+    width: 80%;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2vw;
+    padding: 3vw;
+    margin-bottom: 3vw;
+}
+.content img{
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer{
+    background-color: #195BDB;
+    text-align: center;
+    
+}
+
+.footer h4{
+    color: #F8CF2D;
+}
