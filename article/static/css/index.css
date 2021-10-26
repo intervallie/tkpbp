@@ -3,8 +3,6 @@ body{
     padding: 0;
 }
 
-
-
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
     filter: invert(100%);
@@ -45,10 +43,13 @@ body{
 .footer{
     background-color: #195BDB;
     text-align: center;
-    
 }
 
 .footer h4{
     color: #F8CF2D;
+}
+
+.footer h2{
+    color: white;
 }
 

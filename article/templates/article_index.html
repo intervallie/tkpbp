@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#"><b>RuangSinggah<span id="titik" style="color: yellow;">.</span></b></a>
+        <a class="navbar-brand" href=".."><b>RuangSinggah<span id="titik" style="color: yellow;">.</span></b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -59,8 +59,12 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+
     <div class="main-content">
+      <a href="/add" style="float: right;">Add Post</a>
+      <a href="/admin_view" target="_blank" style="float: right; margin-right: 2vw;">Edit Post</a>
       <h2>Artikel terbaru untukmu!</h2>
+      
       {% for i in article %}
       <div class="article-box">
         <div class="pic">
