@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="form">
+        <form method="post" action="" enctype=multipart/form-data>
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>

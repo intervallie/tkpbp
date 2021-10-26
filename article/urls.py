@@ -6,7 +6,6 @@ from django.conf import settings
 
 urlpatterns = [
 	path('', index, name='index'),
-    #path('add', add_article, name='add'),
 ]
 
 if settings.DEBUG:

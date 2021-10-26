@@ -10,7 +10,7 @@ def index(request):
 
 #@login_required(login_url='')
 def add_article(request):
-    form = ArticleForm(request.POST or None)
+    form = ArticleForm(request.POST, request.FILES or None)
     if form.is_valid():
         form.save()
     return render(request, "article_add.html", {'form': form})
