@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'appdemo',
     'article',
+    'quiz',
 ]
 
 MIDDLEWARE = [
