@@ -17,13 +17,15 @@ from django.urls import include, path, re_path
 from django.contrib import admin
 from article.views import index as index_article
 import article.urls as article
+import accounts.urls as accounts
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^$', index_article, name='index'),
-    path('views/<int:id>', article.singlePost, name='singlePost'),
-    path('add', article.add_article, name='add'),
+    path('',include(accounts)),
+    path('artikel/', include(('article.urls','article'), namespace='article')),
+    # re_path(r'^$', index_article, name='index'),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block css %}
+    {{block.super}}
+    <link rel="stylesheet" href="{% static '../static/css/login.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    {% endblock %}
+    {% block body %}
+        {{block.super}}
+        <section class="loginform">
+            <div class="container-fluid">
+                <div class="row">
+                   
+                    <div class="col-sm-12 col-lg-5 offset-1">
+                        <p class="h1">Ruang <br> Singgah<span class="yellow">.</span></p>
+                        <div class="col-8">
+                            <div class="form-group">
+                                <form action="" method="POST">
+                                    <div class="d-grid gap-2">
+                                        {% csrf_token %}
+                                        {{form.username}}
+                                        <br>
+                                        {{form.password}}
+                                        <br>
+                                        <input class="btn btn-lg btn-login" type="submit" value="LOGIN">
+                                        <p class="text-center notsignedup">Belum punya akun? daftar <a href="{% url 'signup' %}">di sini</a> </p>
+                                    </div>
+    
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-sm-12 col-lg-6 mycol">
+                        <div class="image-banner">
+                            <img src="{% static '../static/images/loginart.png' %}" class="img-fluid" alt="Ilustrasi"> 
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+
+            
+            
+        </section>
+        <!-- {{ form.username }}
+        {{ form.password }} -->
+        {% endblock %}
+   
+
+    
+</html>

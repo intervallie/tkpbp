@@ -1,0 +1,99 @@
+html{
+    height:100%
+}
+.yellow{
+    color: #FFC948;
+}
+.mynav{
+    background-color: #195BDB;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 35px;
+    letter-spacing: -0.017em;
+    text-align: left;
+    color: white;
+    
+    
+}
+.mynav .nav-link, .nav-brand{
+    color:white;
+    margin-top: 14px;
+    margin-bottom: 10px;
+
+}
+.mynav .logo{
+    font-family: Inter;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 53px;
+    letter-spacing: -0.017em;
+    text-align: left;
+    margin-left: 34px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.mynav .active{
+    background-color: #FFC948;
+    border-radius: 20px;
+    color:black;
+    padding-left: 5px;
+}
+
+.nav-item{
+    margin-left: 10px;
+}
+.rightnav{
+    margin-right: 10px;
+}
+
+.myfooter{
+    background-color: #195BDB;
+    /* width:100%; */
+}
+.footerlogo{
+    font-family: Inter;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 53px;
+    letter-spacing: -0.017em;
+    text-align: left;
+    color: white;  
+    margin-top: 56px;  
+}
+.footerdesc{
+    color: #F8CF2D;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: -0.017em;
+    text-align: center;
+    
+    
+}
+.estimated{
+    margin-top: 78px;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.017em;
+    text-align: left;
+    
+}
+
+/* .custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+} */
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+.navbar-dark .navbar-nav .nav-link.active{
+    color: black;
+}

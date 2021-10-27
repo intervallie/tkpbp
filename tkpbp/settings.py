@@ -30,6 +30,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'appdemo',
     'article',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -141,3 +144,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Override User model
+AUTH_USER_MODEL = 'accounts.Account'

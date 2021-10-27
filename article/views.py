@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def index(request):
     article = Article.objects.all().values()
-    response = {'article':article}
+    response = {'article':article,'nbar':'Artikel'}
     return render(request, 'article_index.html', response)
 
 #@login_required(login_url='')
