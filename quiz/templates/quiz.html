@@ -1,0 +1,94 @@
+<div class="container">
+    
+
+Dalam sebulan terakhir, seberapa sering Anda merasa kesal karena sesuatu yang terjadi secara tidak terduga? <br>
+<br>
+<input type="radio" class="btn-check" id="1" name="1" autocomplete="off" value="1"> <label class="btn btn-outline-primary" for="1">tidak pernah</label>
+<input type="radio" class="btn-check" id="2" name="1" autocomplete="off" value="2"> <label class="btn btn-outline-primary" for="2">jarang</label>
+<input type="radio" class="btn-check" id="3" name="1" autocomplete="off" value="3"> <label class="btn btn-outline-primary" for="3">kadang-kadang</label>
+<input type="radio" class="btn-check" id="4" name="1" autocomplete="off" value="4"> <label class="btn btn-outline-primary" for="4">cukup sering</label>
+<input type="radio" class="btn-check" id="5" name="1" autocomplete="off" value="5"> <label class="btn btn-outline-primary" for="5">sangat sering</label>
+<br>
+<br>
+Dalam sebulan terakhir, seberapa sering Anda merasa bahwa Anda tidak dapat mengendalikan hal-hal yang penting dalam hidup Anda? <br>
+<br>
+<input type="radio" class="btn-check" id="12" name="2" autocomplete="off" value="1"> <label class="btn btn-outline-primary" for="12">tidak pernah</label>
+<input type="radio" class="btn-check" id="22" name="2" autocomplete="off" value="2"> <label class="btn btn-outline-primary" for="22">jarang</label>
+<input type="radio" class="btn-check" id="32" name="2" autocomplete="off" value="3"> <label class="btn btn-outline-primary" for="32">kadang-kadang</label>
+<input type="radio" class="btn-check" id="42" name="2" autocomplete="off" value="4"> <label class="btn btn-outline-primary" for="42">cukup sering</label>
+<input type="radio" class="btn-check" id="52" name="2" autocomplete="off" value="5"> <label class="btn btn-outline-primary" for="52">sangat sering</label>
+<br>
+<br>
+Dalam sebulan terakhir, seberapa sering Anda merasa gelisah dan stres? <br>
+<br>
+<input type="radio" class="btn-check" id="13" name="1" autocomplete="off" value="1"> <label class="btn btn-outline-primary" for="13">tidak pernah</label>
+<input type="radio" class="btn-check" id="23" name="1" autocomplete="off" value="2"> <label class="btn btn-outline-primary" for="23">jarang</label>
+<input type="radio" class="btn-check" id="33" name="1" autocomplete="off" value="3"> <label class="btn btn-outline-primary" for="33">kadang-kadang</label>
+<input type="radio" class="btn-check" id="43" name="1" autocomplete="off" value="4"> <label class="btn btn-outline-primary" for="43">cukup sering</label>
+<input type="radio" class="btn-check" id="53" name="1" autocomplete="off" value="5"> <label class="btn btn-outline-primary" for="53">sangat sering</label>
+<br>
+<br>
+Dalam sebulan terakhir, seberapa sering Anda merasa yakin terhadap kemampuan Anda dalam menangani masalah pribadi? <br>
+<br>
+<input type="radio" class="btn-check" id="14" name="1" autocomplete="off" value="5"> <label class="btn btn-outline-primary" for="14">tidak pernah</label>
+<input type="radio" class="btn-check" id="24" name="1" autocomplete="off" value="4"> <label class="btn btn-outline-primary" for="24">jarang</label>
+<input type="radio" class="btn-check" id="34" name="1" autocomplete="off" value="3"> <label class="btn btn-outline-primary" for="34">kadang-kadang</label>
+<input type="radio" class="btn-check" id="44" name="1" autocomplete="off" value="2"> <label class="btn btn-outline-primary" for="44">cukup sering</label>
+<input type="radio" class="btn-check" id="54" name="1" autocomplete="off" value="1"> <label class="btn btn-outline-primary" for="54">sangat sering</label>
+<br>
+<br>
+Dalam sebulan terakhir, seberapa sering Anda merasa bahwa segala sesuatu berjalan sesuai keinginan Anda? <br>
+<br>
+<input type="radio" class="btn-check" id="15" name="1" autocomplete="off" value="5"> <label class="btn btn-outline-primary" for="15">tidak pernah</label>
+<input type="radio" class="btn-check" id="25" name="1" autocomplete="off" value="4"> <label class="btn btn-outline-primary" for="25">jarang</label>
+<input type="radio" class="btn-check" id="35" name="1" autocomplete="off" value="3"> <label class="btn btn-outline-primary" for="35">kadang-kadang</label>
+<input type="radio" class="btn-check" id="45" name="1" autocomplete="off" value="2"> <label class="btn btn-outline-primary" for="45">cukup sering</label>
+<input type="radio" class="btn-check" id="55" name="1" autocomplete="off" value="1"> <label class="btn btn-outline-primary" for="55">sangat sering</label>
+<br>
+<br>
+Dalam sebulan terakhir, seberapa sering Anda menemukan bahwa Anda tidak dapat mengatasi segala hal yang harus dilakukan? <br>
+<br>
+<input type="radio" class="btn-check" id="16" name="1" autocomplete="off" value="1"> <label class="btn btn-outline-primary" for="16">tidak pernah</label>
+<input type="radio" class="btn-check" id="26" name="1" autocomplete="off" value="2"> <label class="btn btn-outline-primary" for="26">jarang</label>
+<input type="radio" class="btn-check" id="36" name="1" autocomplete="off" value="3"> <label class="btn btn-outline-primary" for="36">kadang-kadang</label>
+<input type="radio" class="btn-check" id="46" name="1" autocomplete="off" value="4"> <label class="btn btn-outline-primary" for="46">cukup sering</label>
+<input type="radio" class="btn-check" id="56" name="1" autocomplete="off" value="5"> <label class="btn btn-outline-primary" for="56">sangat sering</label>
+<br>
+<br>
+bjir
+
+
+
+<button type="button" onclick="displayRadioValue()">
+    Submit
+</button>
+
+<div id="result"></div>
+
+
+</div>
+<script>
+    function displayRadioValue() {
+        document.getElementById("result").innerHTML = "";
+        var ele = document.getElementsByTagName('input');
+        var tst=0;
+        for(i = 0; i < ele.length; i++){
+            if(ele[i].checked)
+            tst+=Number(1);
+        }
+        if(Number(tst)<2){
+            alert("please answer all question")
+            return
+        }
+        for(i = 0; i < ele.length; i++) {
+              
+            if(ele[i].type="radio") {
+              
+                if(ele[i].checked)
+                    document.getElementById("result").innerHTML
+                            += ele[i].name + " Value: "
+                            + ele[i].value + "<br>";
+            }
+        }
+    }
+</script>
