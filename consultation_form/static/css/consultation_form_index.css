@@ -3,6 +3,10 @@ h1, h5 {
     font-weight: bolder;
 }
 
+.cs-rounded-border {
+    border-radius: 30px !important;
+}
+
 .tk-color-yellow {
     color: #FFC947;
 }
