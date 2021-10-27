@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'appdemo',
     'article',
+    'consultation_form',
 ]
 
 MIDDLEWARE = [

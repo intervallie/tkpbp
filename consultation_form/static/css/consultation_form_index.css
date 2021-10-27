@@ -1,0 +1,20 @@
+h1, h5 {
+    font-family: Inter, sans-serif;
+    font-weight: bolder;
+}
+
+.tk-color-yellow {
+    color: #FFC947;
+}
+
+.tk-color-blue {
+    color: #185ADB;
+}
+
+.tk-color-black {
+    color: #0A1931;
+}
+
+.tk-color-white {
+    color: #EFEFEF;
+}
