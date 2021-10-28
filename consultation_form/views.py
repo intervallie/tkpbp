@@ -9,5 +9,5 @@ def index(request):
                  'Depok',
                  'Tangerang',
                  'Bekasi']
-    response = {'consultation_form': consultation_form, 'city_list': city_list}
+    response = {'consultation_form': consultation_form, 'city_list': city_list, 'nbar': 'Konsultasi'}
     return render(request, "consultation_form_index.html", response)

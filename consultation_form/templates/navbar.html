@@ -1,0 +1,42 @@
+<!-- Imported Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+<nav class="navbar-nav navbar-dark navbar-expand-lg  mynav">
+  <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse " id="navbar1">
+      <ul class="navbar-nav me-auto ">
+          <span class="navbar-brand mb-0 h1 logo">Ruang Singgah<span class="yellow">.</span></span>
+          <li class="nav-item">
+              <a href="#" class="nav-link {% if nbar == 'Konsultasi' %} active {% endif %}">Konsultasi</a>
+          </li>
+          <li class="nav-item">
+              <a href="{% url 'article:index' %}" class="nav-link {% if nbar == 'Artikel' %} active {% endif %}">Artikel</a>
+          </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link {% if nbar == 'Quiz' %} active {% endif %}">Quiz</a>
+          </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link {% if nbar == 'Diskusi' %} active {% endif %}">Diskusi</a>
+          </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link {% if nbar == 'Donasi' %} active {% endif %}">Donasi</a>
+          </li>
+
+
+      </ul>
+      <ul class="navbar-nav rightnav">
+          <li class="nav-item">
+              <a href="{% url 'registrasi' %}" class="nav-link{% if nbar == 'Registrasi' %} active {% endif %}">Registrasi</a>
+          </li>
+          <li class="nav-item">
+              {% if request.user.is_authenticated %}
+              <a href="#" class="nav-link">Halo, {{request.user.name}}!</a>
+              {% else %}
+                 <a href="{% url 'login' %}" class="nav-link{% if nbar == 'login' %} active {% endif %}   ">Login</a>
+              {% endif %}
+          </li>
+      </ul>
+  </div>
+</nav>
