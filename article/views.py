@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .models import Article
 from .forms import ArticleForm
@@ -5,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def index(request):
     article = Article.objects.all().values()
-    response = {'article':article}
+    response = {'article':article,'nbar':'Artikel'}
     return render(request, 'article_index.html', response)
 
 #@login_required(login_url='')
@@ -30,7 +31,7 @@ def adminView(request):
 def delete_post(request, id):
     post = Article.objects.get(id=id)
     post.delete()
-    return redirect('/admin_view')
+    return adminView(request)
 
 def edit_post(request, id):
     post = Article.objects.get(id=id)
@@ -38,7 +39,7 @@ def edit_post(request, id):
         form = ArticleForm(request.POST, instance=post)
         if form.is_valid():
             form.save()
-            return redirect('/admin_view')
+            return adminView(request)
     else:
         form = ArticleForm(instance=post)
     return render(request, "article_add.html", {'form': form})

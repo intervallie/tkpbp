@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    {{block.super}}
+    <link rel="stylesheet" href="{% static '../static/css/registrasi.css' %}">
+{% endblock %}
+{% block body %}
+    {{block.super}}
+    <div class="row cardgroup">
+        <p class="h1 text-center judul">Registrasi</p>
+        <div class="col-sm-12 col-lg-6 registercard">
+            <div class="card h-100 mx-auto mhscard">
+                
+                <div class="card-header text-center">
+                    Mahasiswa
+                </div>
+                <img src="{% static '../static/images/mhs-ilustrasi.png' %}" alt="Ilustrasi Konseling Mahasiswa" class="card-img-center mx-auto">
+                <div class="card-body">
+                    <p class="card-text text-center mt-5 description">
+                        Dapatkan akun untuk membuat jadwal konsultasi dengan psikolog 
+                    </p>
+                    <a href="{% url 'signup' %}" class="stretched-link"></a>
+                    <!-- <a href="{% url 'signup' %}" class="card-link">Di sini</a> -->
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-sm-12 col-lg-6 registercard">
+            <div class="card h-100 mx-auto psikologcard">
+                <div class="card-header text-center">
+                    Psikolog
+                </div>
+                <img src="{% static '../static/images/psiko-ilustrasi.png' %}" alt="Ilustrasi Psikolog" class="card-img-center mx-auto">
+                <div class="card-body">
+                    <a href="{% url 'psikolog' %}" class="stretched-link"></a>
+                    <p class="card-text text-center mt-5 description">
+                        Yuk daftar menjadi konselor RuangSInggah :D
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+

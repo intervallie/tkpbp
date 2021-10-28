@@ -17,17 +17,17 @@ from django.urls import include, path, re_path
 from django.contrib import admin
 from article.views import index as index_article
 import article.urls as article
+import accounts.urls as accounts
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^$', index_article, name='index'),
-    path('views/<int:id>', article.singlePost, name='singlePost'),
-    path('add', article.add_article, name='add'),
-    path('admin_view', article.adminView, name='admin_view'),
-    path('delete/<int:id>', article.delete_post, name='delete'),
-    path('edit/<int:id>', article.edit_post, name='edit'),
+    path('',include(accounts)),
+    path('artikel/', include(('article.urls','article'), namespace='article')),
     path('consultation/', include('consultation_form.urls')),
+    # re_path(r'^$', index_article, name='index'),
+
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
