@@ -7,11 +7,22 @@ h1, h5 {
     border-radius: 30px !important;
 }
 
-.cs-button {
+/* .cs-button {
     border-radius: 13px;
     background-color: #FFC947;
     color: black;
     border: none;
+} */
+
+.cs-button.btn-primary {
+    border-radius: 13px;
+    background-color: #FFC947;
+    color: black;
+    border: none;
+}
+
+.cs-button.btn-primary:hover {
+    background-color: #e5b43f;
 }
 
 .tk-color-yellow {
