@@ -8,14 +8,14 @@
 {% endblock %}
 {% block body %}
 <!-- get counselor link -->
-<p id="get-counselor-url" hidden>{% url 'consultation_form:get_counselor' %}</p>
+<p id="get-counselor-url" hidden>{% url 'consultation_form:get_counselor' 12345 %}</p>
 <p id="get-counselor-image" hidden>{% static 'images/user-profile-svgrepo-com.svg' %}</p>
 <div class="container mt-3">
   <h1 class="text-center">Buat jadwal konsultasimu dengan</h1>
   <h1 class="text-center mb-5">RuangSinggah<span class="tk-color-yellow">.</span></h1>
   <div class="row gx-5">
     <div class="col col-xl-4 me-xl-5">
-      <form method="POST" action="">
+      <form method="POST" action="" id="consultation_form">
         {% csrf_token %}
         <h5>Nama Lengkap</h5>
         {{ consultation_form.full_name }}
@@ -36,7 +36,7 @@
       <svg class="me-2" width=35 height=36>
         <use href="{% static 'images/map-svgrepo-com.svg' %}#Capa_1"></use>
       </svg>
-      <select>
+      <select id="city-select">
         {% for city in city_list %}
         <option value="{{ city }}">{{ city }}</option>
         {% endfor %}

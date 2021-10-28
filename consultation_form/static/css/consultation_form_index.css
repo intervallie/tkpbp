@@ -7,21 +7,14 @@ h1, h5 {
     border-radius: 30px !important;
 }
 
-/* .cs-button {
-    border-radius: 13px;
-    background-color: #FFC947;
-    color: black;
-    border: none;
-} */
-
-.cs-button.btn-primary {
+.cs-button-submit.btn-primary {
     border-radius: 13px;
     background-color: #FFC947;
     color: black;
     border: none;
 }
 
-.cs-button.btn-primary:hover {
+.cs-button-submit.btn-primary:hover {
     background-color: #e5b43f;
 }
 

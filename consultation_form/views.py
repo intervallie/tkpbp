@@ -18,10 +18,12 @@ def index(request):
     response = {'consultation_form': consultation_form, 'city_list': city_list, 'nbar': 'Konsultasi'}
     return render(request, "consultation_form_index.html", response)
 
-def get_counselor(request):
-    # is_ajax = request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
-    # if (is_ajax and request.method == 'GET'):
-    print("fetching counselor")
-    counselor = Account.objects.filter(is_counselor=True)
-    data = serializers.serialize('json', counselor)
-    return HttpResponse(data, content_type='application/json')
+def get_counselor(request, city):
+    print("get_counselor activated")
+    is_ajax = request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+    if (is_ajax and request.method == 'GET' and city == 'Jakarta'):
+        counselor = Account.objects.filter(is_counselor=True)
+        data = serializers.serialize('json', counselor)
+        return HttpResponse(data, content_type='application/json')
+    else:
+        return HttpResponse("{}", content_type='application/json')
