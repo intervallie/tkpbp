@@ -1,0 +1,28 @@
+.form-content{
+    width: 80%;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2vw;
+    padding: 3vw;
+    margin-bottom: 3vw;
+}
+input[type=text]{
+    width: 100%;
+    border-radius: 2vh;
+    height: 4vh;
+    border-color: #172774;
+}
+
+#image-holder img{
+    width: 50%;
+}
+
+button{
+    width: 100%;
+    border-radius: 2vh;
+    border-color: white;
+    border: none;
+}
+

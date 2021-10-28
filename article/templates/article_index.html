@@ -64,7 +64,9 @@
       </a>
     </div>
     <div class="main-content">
-      <h2>Artikel terbaru untukmu!</h2>
+      <h2 style="display: inline-block;">Artikel terbaru untukmu!</h2>
+      <a href="{% url 'article:add' %}" style="float: right;">Add Post</a>
+      <a href="{% url 'article:admin_view' %}" target="_blank" style="float: right; margin-right: 2vw; ">Edit Post</a>
       {% for i in article %}
       <div class="article-box">
         <div class="pic">

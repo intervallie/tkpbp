@@ -1,0 +1,26 @@
+.tableBack{
+    background-color: white;
+    margin: auto;
+    width: 90%;
+    border-radius: 2vh;
+    padding: 3vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 5vw;
+}
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+th, tr{
+    border: 1px solid #000;
+}
+td {
+  border: 1px solid #000;
+  width: 50px;
+}
+td+td {
+  width: auto;
+}

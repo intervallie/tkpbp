@@ -26,6 +26,8 @@ urlpatterns = [
     path('artikel/', include(('article.urls','article'), namespace='article')),
     # re_path(r'^$', index_article, name='index'),
 
+    re_path(r'^$', index_article, name='index'),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

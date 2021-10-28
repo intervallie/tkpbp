@@ -1,18 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <head>
+        {% block css %}
+        {{block.super}}
+        <script src="{% static 'js/article_add.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/article_add.css' %}">
+        {% endblock %}
+        <title>Hello, world!</title>
+    </head>
+{% block body %}
+  {{block.super}}
+    <br>
     <div class="form">
         <form method="post" action="" enctype=multipart/form-data>
-            {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit">Submit</button>
+            <div class="form-content">
+                {% csrf_token %}
+                <b>Title</b>
+                {{form.title}}
+                <br>
+                <b>Author</b>
+                {{form.author}}
+                <br>
+                <b>Description</b>
+                {{form.desc}}
+                <br>
+                <b>Article</b>
+                <br>
+                {{form.article}}
+                <br>
+                <b>Photo</b>
+                {{form.photo}}
+                <br>
+                <b>Image Preview:</b>
+                <div id="image-holder"> </div>
+                <button type="submit">Submit</button>
+            </div>
         </form>
     </div>
-</body>
+{% endblock %}
 </html>

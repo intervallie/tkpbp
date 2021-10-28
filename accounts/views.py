@@ -5,6 +5,7 @@ from django.contrib.auth import get_user, login, logout
 from accounts.forms import *
 from django.contrib.auth.views import LoginView
 
+
 # Create your views here.
 def base_view(request):
     if request.user.is_authenticated:
@@ -35,7 +36,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request,user)
-            return HttpResponseRedirect('home')
+            return HttpResponseRedirect('artikel')
 
     else:
         form = AuthenticationForm()
