@@ -6,3 +6,6 @@ def quiz_start(request):
 
 def quiz(request):
     return render(request, 'quiz.html')
+
+def hasil(request):
+    return render(request, 'sedang.html')
