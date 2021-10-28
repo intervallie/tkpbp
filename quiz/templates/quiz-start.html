@@ -1,4 +1,7 @@
+{% extends 'base.html' %}
 {% load static %}
+{% block body %}
+  {{block.super}}
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,21 +41,6 @@
 </script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href=".."><b>RuangSinggah<span id="titik" style="color: yellow;">.</span></b></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" href="#"><b>Konsultasi</b></a>
-        <a class="nav-link" href="#"><b>Quiz</b><span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="#"><b>Diskusi</b></a>
-        <a class="nav-link" href="#"><b>Donasi</b></a>
-      </div>
-    </div>
-</nav>
-
       <h4><b style="visibility: hidden;">
         _
         _
@@ -98,5 +86,7 @@
 </center>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+
 </body>
 </html> 
+{% endblock %}

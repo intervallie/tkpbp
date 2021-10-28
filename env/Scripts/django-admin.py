@@ -1,4 +1,4 @@
-#!c:\users\user\documents\pbp_assignment\tk-pbp\env\scripts\python.exe
+#!C:\Users\teuku shafwan alim\Documents\git-exercise\tkpbp\env\Scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
