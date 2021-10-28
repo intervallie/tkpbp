@@ -48,6 +48,7 @@
             <option value="{{ city }}">{{ city }}</option>
             {% endfor %}
           </select>
+          {% for city in city_list %}
           <div class="card mt-4 mb-4 border-5 cs-rounded-border">
             <div class="row g-0">
               <div class="col-4 col-md-2 col-xl-3 m-3">
@@ -58,9 +59,15 @@
                   <h5 class="card-title">Aku Peta</h5>
                   <p class="card-text">Katakan peta! Katakan peta!</p>
                 </div>
+                <div class="card-body mt-4">
+                  <div class="d-flex justify-content-end">
+                    <button class="btn btn-primary" style="border-radius: 13px;">Buat jadwal</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>
