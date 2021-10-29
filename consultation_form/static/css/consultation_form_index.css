@@ -3,6 +3,10 @@ h1, h5 {
     font-weight: bolder;
 }
 
+.me-n1 {
+    margin-top: -0.25rem !important;
+}
+
 .cs-rounded-border {
     border-radius: 30px !important;
 }
