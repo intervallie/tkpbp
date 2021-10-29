@@ -1,0 +1,147 @@
+<!-- Grabbed from base.html -->
+
+<!-- Imported Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+
+<!-- Style -->
+<style>
+.yellow{
+    color: #FFC948;
+}
+.mynav{
+    background-color: #195BDB;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 35px;
+    letter-spacing: -0.017em;
+    text-align: left;
+    color: white;
+
+
+}
+.mynav .nav-link, .nav-brand{
+    color:white;
+    margin-top: 14px;
+    margin-bottom: 10px;
+
+}
+.mynav .logo{
+    font-family: Inter;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 53px;
+    letter-spacing: -0.017em;
+    text-align: left;
+    margin-left: 34px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.mynav .active{
+    background-color: #FFC948;
+    border-radius: 20px;
+    color:black;
+    padding-left: 5px;
+}
+
+.nav-item{
+    margin-left: 10px;
+}
+.rightnav{
+    margin-right: 10px;
+}
+
+.myfooter{
+    background-color: #195BDB;
+    /* position: fixed;
+    width:100%;
+    height: 60px; */
+}
+.footerlogo{
+    font-family: Inter;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 53px;
+    letter-spacing: -0.017em;
+    text-align: left;
+    color: white;
+    margin-top: 56px;
+}
+.footerdesc{
+    color: #F8CF2D;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: -0.017em;
+    text-align: center;
+
+
+}
+.estimated{
+    margin-top: 78px;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.017em;
+    text-align: left;
+
+}
+
+/* .custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+} */
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+.navbar-dark .navbar-nav .nav-link.active{
+    color: black;
+}
+</style>
+
+<nav class="navbar-nav navbar-dark navbar-expand-lg  mynav">
+  <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse " id="navbar1">
+      <ul class="navbar-nav me-auto ">
+          <span class="navbar-brand mb-0 h1 logo">Ruang Singgah<span class="yellow">.</span></span>
+          <li class="nav-item">
+              <a href="#" class="nav-link {% if nbar == 'Konsultasi' %} active disabled {% endif %}">Konsultasi</a>
+          </li>
+          <li class="nav-item">
+              <a href="{% url 'article:index' %}" class="nav-link {% if nbar == 'Artikel' %} active disabled {% endif %}">Artikel</a>
+          </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link {% if nbar == 'Quiz' %} active disabled {% endif %}">Quiz</a>
+          </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link {% if nbar == 'Diskusi' %} active disabled {% endif %}">Diskusi</a>
+          </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link {% if nbar == 'Donasi' %} active disabled {% endif %}">Donasi</a>
+          </li>
+
+
+      </ul>
+      <ul class="navbar-nav rightnav">
+          <li class="nav-item">
+              <a href="{% url 'registrasi' %}" class="nav-link{% if nbar == 'Registrasi' %} active {% endif %}">Registrasi</a>
+          </li>
+          <li class="nav-item">
+              {% if request.user.is_authenticated %}
+              <a href="#" class="nav-link">Halo, {{request.user.name}}!</a>
+              {% else %}
+                 <a href="{% url 'login' %}" class="nav-link{% if nbar == 'login' %} active {% endif %}   ">Login</a>
+              {% endif %}
+          </li>
+      </ul>
+  </div>
+</nav>

@@ -1,0 +1,48 @@
+{% extends 'consultation_form_base.html' %}
+{% load static %}
+{% block title %}Formulir Konsultasi{% endblock %}
+{% block more-import %}
+<!-- JQuery Import -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="{% static 'js/consultation_form.js' %}"></script>
+{% endblock %}
+{% block body %}
+<!-- get counselor link -->
+<p id="get-counselor-url" hidden>{% url 'consultation_form:get_counselor' 12345 %}</p>
+<p id="get-counselor-image" hidden>{% static 'images/user-profile-svgrepo-com.svg' %}</p>
+<div class="container mt-3">
+  <h1 class="text-center">Buat jadwal konsultasimu dengan</h1>
+  <h1 class="text-center mb-5">RuangSinggah<span class="tk-color-yellow">.</span></h1>
+  <div class="row gx-5">
+    <div class="col col-xl-4 me-xl-5">
+      <form method="POST" action="" id="consultation_form">
+        {% csrf_token %}
+        <h5>Nama Lengkap</h5>
+        {{ consultation_form.full_name }}
+        <h5>NPM</h5>
+        {{ consultation_form.npm }}
+        <h5>Waktu Konsultasi</h5>
+        {{ consultation_form.date }}
+        <h5>Email</h5>
+        {{ consultation_form.email }}
+      </form>
+    </div>
+
+    <!-- Force next columns to break to new line at xl breakpoint and down -->
+    <div class="w-100 d-block d-xl-none"></div>
+
+    <div class="col ms-xl-5">
+      <h5>Cari Jadwal Psikolog</h5>
+      <svg class="me-2" width=35 height=36>
+        <use href="{% static 'images/map-svgrepo-com.svg' %}#Capa_1"></use>
+      </svg>
+      <select id="city-select">
+        {% for city in city_list %}
+        <option value="{{ city }}">{{ city }}</option>
+        {% endfor %}
+      </select>
+      <div id="counselor-list"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}

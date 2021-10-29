@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(accounts)),
     path('artikel/', include(('article.urls','article'), namespace='article')),
+    path('consultation/', include(('consultation_form.urls', 'consultation_form'), namespace='consultation_form')),
     # re_path(r'^$', index_article, name='index'),
 
 

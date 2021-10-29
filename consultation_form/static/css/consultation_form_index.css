@@ -1,0 +1,35 @@
+h1, h5 {
+    font-family: Inter, sans-serif;
+    font-weight: bolder;
+}
+
+.cs-rounded-border {
+    border-radius: 30px !important;
+}
+
+.cs-button-submit.btn-primary {
+    border-radius: 13px;
+    background-color: #FFC947;
+    color: black;
+    border: none;
+}
+
+.cs-button-submit.btn-primary:hover {
+    background-color: #e5b43f;
+}
+
+.tk-color-yellow {
+    color: #FFC947;
+}
+
+.tk-color-blue {
+    color: #185ADB;
+}
+
+.tk-color-black {
+    color: #0A1931;
+}
+
+.tk-color-white {
+    color: #EFEFEF;
+}
