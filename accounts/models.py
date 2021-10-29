@@ -42,7 +42,7 @@ class AccountManager(BaseUserManager):
 
 class Account(AbstractBaseUser,PermissionsMixin):
     email = models.EmailField(verbose_name = 'email address',max_length=255,unique=True)
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, verbose_name='username')
     is_active = models.BooleanField(default=True)
     is_counselor = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
@@ -55,3 +55,12 @@ class Account(AbstractBaseUser,PermissionsMixin):
 
     def __str__(self):
         return self.name
+
+class BioPsikolog(models.Model):
+    user = models.OneToOneField(Account, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=100, blank=True)
+    last_name = models.CharField(max_length=100, blank=True)
+    bio = models.TextField()
+
+    def __str__(self):
+        return self.user.username

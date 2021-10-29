@@ -13,7 +13,7 @@ def base_view(request):
     else:
         return HttpResponseRedirect('login')
 
-def signup_view(request):
+def signup_mahasiswa(request):
     context = {}
     if request.method == 'POST':
         form = MyUserForm(data =request.POST)
@@ -60,10 +60,20 @@ def logout_view(request):
 def registrasi_view(request):
     return render(request,'registrasi.html', {'nbar' : 'Registrasi'})
 
-def psikolog_view(request):
-    if request.user.is_authenticated and request.user.is_counselor:
-        return render(request,'psikolog.html', {'nbar' : 'Registrasi'})
-    return render(request,'bisagila.html')
+def signup_psikolog(request):
+    context = {}
+    if request.method == 'POST':
+        form = MyUserForm(data =request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+        else:
+            context['registration_form'] = form
+        # else:
+        #     return redirect('halo.html')    
+    form = MyUserForm()
+    context['form'] = form
+    return render(request,'signup.html',context)
 # Untuk liat base
 def basetemp_view(request):
     return render(request,'base.html',{'nbar' : 'base'})
