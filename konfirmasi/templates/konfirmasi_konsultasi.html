@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block css %}
+    {{block.super}}
+    <link rel="stylesheet" href="{% static '../static/konfirmasi_konsultasi.css' %}">
+    <!-- Inter font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    {% endblock %}
+    {% block body %}
+        {{block.super}}
+        <div class="container">
+            <div class="heading">
+                <h1>Konfirmasi Konsultasi</h1>
+            </div>
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <p>Nama     : {{ konsul.full_name }}</p>
+                        <p>NPM      : {{ konsul.npm }}</p>
+                        <p>Waktu    : {{ konsul.date }}</p>
+                        <p>Email    : {{ konsul.email }}</p>
+                        <div class="btn">
+                            <a href="#" class="btn1">Accept</a>
+                            <a href="#" class="btn2">Reject</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p>Nama     : {{ konsul.full_name }}</p>
+                        <p>NPM      : {{ konsul.npm }}</p>
+                        <p>Waktu    : {{ konsul.date }}</p>
+                        <p>Email    : {{ konsul.email }}</p>
+                        <div class="btn">
+                            <a href="#" class="btn1">Accept</a>
+                            <a href="#" class="btn2">Reject</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p>Nama     : {{ konsul.full_name }}</p>
+                        <p>NPM      : {{ konsul.npm }}</p>
+                        <p>Waktu    : {{ konsul.date }}</p>
+                        <p>Email    : {{ konsul.email }}</p>
+                        <div class="btn">
+                            <a href="#" class="btn1">Accept</a>
+                            <a href="#" class="btn2">Reject</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p>Nama     : {{ konsul.full_name }}</p>
+                        <p>NPM      : {{ konsul.npm }}</p>
+                        <p>Waktu    : {{ konsul.date }}</p>
+                        <p>Email    : {{ konsul.email }}</p>
+                        <div class="btn">
+                            <a href="#" class="btn1">Accept</a>
+                            <a href="#" class="btn2">Reject</a>
+                        </div>
+                    </div>
+                </div>
+            </div>       
+    {% endblock %}
+</html>

@@ -25,7 +25,12 @@ urlpatterns = [
     path('konfirmasi/', include('konfirmasi.urls')),
     path('',include(accounts)),
     path('artikel/', include(('article.urls','article'), namespace='article')),
+<<<<<<< HEAD
     re_path(r'^$', index_konfirmasi, name='index'),
+=======
+    path('consultation/', include(('consultation_form.urls', 'consultation_form'), namespace='consultation_form')),
+    # re_path(r'^$', index_article, name='index'),
+>>>>>>> 7fb4f5bad6c4fc9ac7d5c8c2ea3d943bd53092f4
 
 
 ]

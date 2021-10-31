@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    {{block.super}}
+    {{request.user.name}}
+    {{request.user.email}}
+    {% if request.user.is_counselor %}
+        {{request.user.biopsikolog.domisili}}
+        {{request.user.biopsikolog.bio}}
+        {% for data in request.user.biopsikolog.values %}
+            <p>{{data}}</p>
+        {% endfor %}
+    {% endif %}
+    {{request.user.biopsikologs}}
+{% endblock %}

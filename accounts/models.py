@@ -1,6 +1,8 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 # Create your models here.
 
 class AccountManager(BaseUserManager):
@@ -42,7 +44,7 @@ class AccountManager(BaseUserManager):
 
 class Account(AbstractBaseUser,PermissionsMixin):
     email = models.EmailField(verbose_name = 'email address',max_length=255,unique=True)
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, verbose_name='username')
     is_active = models.BooleanField(default=True)
     is_counselor = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
@@ -55,3 +57,28 @@ class Account(AbstractBaseUser,PermissionsMixin):
 
     def __str__(self):
         return self.name
+
+class BioPsikolog(models.Model):
+    JKT = 'Jakarta'
+    BOG = 'Bogor'
+    DEP = 'Depok'
+    TGR = 'Tangerang'
+    BKS = 'Bekasi'
+    DOMISILI_CHOICES =(
+        (JKT, "Jakarta"),
+        (BOG, "Bogor"),
+        (DEP, "Depok"),
+        (TGR, "Tangerang"),
+        (BKS, "Bekasi"),
+    )  
+    user = models.OneToOneField(Account, on_delete=models.CASCADE)
+    domisili = models.CharField(max_length=9,choices=DOMISILI_CHOICES,default=JKT)
+    bio = models.TextField()
+
+
+    
+
+    def __str__(self):
+        return self.user.name
+
+
