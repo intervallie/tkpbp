@@ -42,6 +42,13 @@
                         </li>
                         {% if request.user.is_counselor %}
                         <li class="nav-item">
+<<<<<<< HEAD
+=======
+                            <a href="{% url 'consultation_form:index' %}" class="nav-link {% if nbar == 'Konsultasi' %} active {% endif %}">Konsultasi</a>
+                        </li>
+                        {% if request.user.is_counselor %}
+                        <li class="nav-item">
+>>>>>>> 7fb4f5bad6c4fc9ac7d5c8c2ea3d943bd53092f4
                             <a href="{% url 'consultation_form:index' %}" class="nav-link {% if nbar == 'Konfirmasi' %} active {% endif %}">Konfirmasi</a>
                         </li>
                         {% endif %}
