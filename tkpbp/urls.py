@@ -15,16 +15,17 @@ Including another URLconf
 """
 from django.urls import include, path, re_path
 from django.contrib import admin
-from article.views import index as index_article
+from article.views import index as index_konfirmasi
 import article.urls as article
 import accounts.urls as accounts
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('konfirmasi/', include('konfirmasi.urls')),
     path('',include(accounts)),
     path('artikel/', include(('article.urls','article'), namespace='article')),
-    # re_path(r'^$', index_article, name='index'),
+    re_path(r'^$', index_konfirmasi, name='index'),
 
 
 ]

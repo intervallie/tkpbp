@@ -32,6 +32,11 @@
                 <div class="collapse navbar-collapse " id="navbar1">
                     <ul class="navbar-nav me-auto ">
                         <span class="navbar-brand mb-0 h1 logo">Ruang Singgah<span class="yellow">.</span></span>
+                        {% if request.user.is_counselor %}
+                            <li class="nav-item">
+                            <a href="{% url 'konfirmasi_konsultasi:index' %}" class="nav-link {% if nbar == 'Konfirmasi' %} active {% endif %}">Konfirmasi</a>
+                            </li>
+                        {% endif %}
                         <li class="nav-item">
                             <a href="#" class="nav-link {% if nbar == 'Konsultasi' %} active {% endif %}">Konsultasi</a>
                         </li>
