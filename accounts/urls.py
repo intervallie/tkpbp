@@ -5,6 +5,7 @@ import article.views as article
 urlpatterns = [
     path('',base_view,name='base'),
     path('login',login_view,name='login'),
+    path('profil',profil_view,name='profil'),
     path('home',home_view,name='home'),
     path('signup',signup_mahasiswa,name='signup'),
     path('logout',logout_view,name='logout'),

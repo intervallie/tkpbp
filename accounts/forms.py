@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import AuthenticationForm, UsernameField, UserCreationForm
-
+from .models import BioPsikolog
 
 class MyAuthenticationForm(AuthenticationForm):
     username = UsernameField(
@@ -18,7 +18,7 @@ class MyAuthenticationForm(AuthenticationForm):
 
 
 class MyUserForm(UserCreationForm):
-    def __init__(self, *args, **kwargs):
+    def __init__(self,*args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['name'].widget.attrs = {
             'class': 'form-control'
@@ -42,6 +42,31 @@ class MyUserForm(UserCreationForm):
     def save(self, commit=True):
         user = super(MyUserForm, self).save(commit=False)
         user.email = self.cleaned_data['email']
+        if self.is_psikolog():
+            user.is_counselor = True
+            print(self.is_psikolog())
+        else:
+            print('whyy')
         if commit:
             user.save()
         return user
+    
+    def set_psikolog_status(self,status):
+        self.psikolog = status
+    
+    def is_psikolog(self):
+        return self.psikolog
+
+class MyPsikologForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['domisili'].widget.attrs = {
+            'class': 'form-control'
+        }
+        self.fields['bio'].widget.attrs = {
+            'class': 'form-control'
+        }
+    class Meta:
+        model = BioPsikolog
+        fields = ('domisili','bio')
+

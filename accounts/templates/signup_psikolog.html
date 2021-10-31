@@ -7,7 +7,7 @@
     {{block.super}}
     
     <div class="form-group col-6 offset-3 ">
-        <h1 class = "text-center">Registrasi <br> Mahasiswa</h1>
+        <h1 class = "text-center">Registrasi <br> Psikolog </h1>
         <br>
         <form action="" method="post">
 
@@ -22,13 +22,33 @@
 
                     <br>  
                 {% endfor %}
+
+                {% for field in biodata_form %}
+                    <p class="text-capitalize text-center h5">{{field.name}}</p>
+                    {{field}}
+
+                    <small class="form-text">
+                        {{field.help_text}}
+                    </small>
+
+                    <br>  
+                {% endfor %}                
             
-                {% for field in registration_form %}
+                {% for field in error_user_form %}
                     {% for error in field.errors %}
                     <p style="color: red">{{error}}</p>
                     <p>{{field.name }}</p>
                     {% endfor %}
                 {% endfor %}
+
+                {% for field in error_biodata_form %}
+                    {% for error in field.errors %}
+                    <p style="color: red">{{error}}</p>
+                    <p>{{field.name }}</p>
+                    {% endfor %}
+                {% endfor %}                
+
+
                 <br>
                 <input type="submit" value="Sign Up" class="btn btn-lg btn-primary col-4 offset-4">
             

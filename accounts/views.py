@@ -1,7 +1,7 @@
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
-from django.contrib.auth import get_user, login, logout
+from django.contrib.auth import get_user, login, logout,authenticate
 from accounts.forms import *
 from django.contrib.auth.views import LoginView
 
@@ -18,16 +18,45 @@ def signup_mahasiswa(request):
     if request.method == 'POST':
         form = MyUserForm(data =request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            username = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request,user)
             return HttpResponseRedirect('/')
         else:
             context['registration_form'] = form
-        # else:
-        #     return redirect('halo.html')    
+   
     form = MyUserForm()
     context['form'] = form
     return render(request,'signup.html',context)
 
+def signup_psikolog(request):
+    context = {}
+    if request.method == 'POST':
+        form = MyUserForm(request.POST)
+        form.set_psikolog_status(True)
+        biodata_form = MyPsikologForm(request.POST)
+        if form.is_valid() and biodata_form.is_valid():
+            user = form.save()
+            biodata = biodata_form.save(commit=False)
+            biodata.user = user
+            biodata.save()
+
+            username = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request,user)
+            return HttpResponseRedirect('/')
+        else:
+            context['error_user_form'] = form
+            context['error_biodata_form'] = biodata_form
+    else:
+        form = MyUserForm()
+        biodata_form = MyPsikologForm()
+    context['form'] = form
+    context['biodata_form'] = biodata_form
+    return render(request,'signup_psikolog.html',context)
 
 def login_view(request):
     context = {}
@@ -60,20 +89,11 @@ def logout_view(request):
 def registrasi_view(request):
     return render(request,'registrasi.html', {'nbar' : 'Registrasi'})
 
-def signup_psikolog(request):
-    context = {}
-    if request.method == 'POST':
-        form = MyUserForm(data =request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/')
-        else:
-            context['registration_form'] = form
-        # else:
-        #     return redirect('halo.html')    
-    form = MyUserForm()
-    context['form'] = form
-    return render(request,'signup.html',context)
+def profil_view(request):
+    if request.user.is_authenticated:
+        return render(request,'profil.html')
+    return render(request,'bisagila.html')
+
 # Untuk liat base
 def basetemp_view(request):
     return render(request,'base.html',{'nbar' : 'base'})

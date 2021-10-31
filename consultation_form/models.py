@@ -6,3 +6,5 @@ class Consultation(models.Model):
     npm = models.PositiveBigIntegerField()
     date = models.DateField()
     email= models.CharField(max_length=50)
+
+    
