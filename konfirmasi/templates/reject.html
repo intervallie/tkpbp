@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block css %}
+    {{block.super}}
+    {% endblock %}
+    {% block body %}
+        {{block.super}}
+        <p>Sayang sekali, anda menolak konsultasi :(</p>
+    {% endblock %}   
