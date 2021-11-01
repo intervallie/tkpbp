@@ -34,21 +34,11 @@
                         <span class="navbar-brand mb-0 h1 logo">Ruang Singgah<span class="yellow">.</span></span>
                         {% if request.user.is_counselor %}
                             <li class="nav-item">
-                            <a href="{% url 'konfirmasi_konsultasi:index' %}" class="nav-link {% if nbar == 'Konfirmasi' %} active {% endif %}">Konfirmasi</a>
+                            <a href="{% url 'konfirmasi:index' %}" class="nav-link {% if nbar == 'Konfirmasi' %} active {% endif %}">Konfirmasi</a>
                             </li>
                         {% endif %}
+                        {% if request.user.is_mahasiswa %}
                         <li class="nav-item">
-                            <a href="{% url 'consultation_form:index' %}" class="nav-link {% if nbar == 'Konsultasi' %} active {% endif %}">Konsultasi</a>
-                        </li>
-                        {% if request.user.is_counselor %}
-                        <li class="nav-item">
-<<<<<<< HEAD
-=======
-                            <a href="{% url 'consultation_form:index' %}" class="nav-link {% if nbar == 'Konsultasi' %} active {% endif %}">Konsultasi</a>
-                        </li>
-                        {% if request.user.is_counselor %}
-                        <li class="nav-item">
->>>>>>> 7fb4f5bad6c4fc9ac7d5c8c2ea3d943bd53092f4
                             <a href="{% url 'consultation_form:index' %}" class="nav-link {% if nbar == 'Konfirmasi' %} active {% endif %}">Konfirmasi</a>
                         </li>
                         {% endif %}
@@ -101,5 +91,5 @@
         <p class="text-center estimated">Est.2021 Kelompok D04</p>
 
     </footer>
-{% endblock %}
+    {% endblock %}
 </html>
