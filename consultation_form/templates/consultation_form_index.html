@@ -10,8 +10,13 @@
 {% endblock %}
 {% block body %}
 <!-- get counselor link -->
-<p id="get-counselor-url" hidden>{% url 'consultation_form:get_counselor' 12345 %}</p>
-<p id="get-counselor-image" hidden>{% static 'images/user-profile-svgrepo-com.svg' %}</p>
+<script type="text/javascript">
+  var get_counselor_url = "{% url 'consultation_form:get_counselor' 12345 %}".replace(/12345/, '');
+  var get_counselor_image = "{% static 'images/user-profile-svgrepo-com.svg' %}";
+  var get_sad_image = "{% static 'images/sad-svgrepo-com.svg' %}";
+  var formSubmitURL = "{% url 'consultation_form:submit_form' 12345 %}".replace(/12345/, '');
+</script>
+
 <div class="container mt-3">
   <h1 class="text-center">Buat jadwal konsultasimu dengan</h1>
   <h1 class="text-center mb-5">RuangSinggah<span class="tk-color-yellow">.</span></h1>
@@ -35,7 +40,7 @@
 
     <div class="col ms-xl-5">
       <h5>Cari Jadwal Psikolog</h5>
-      <svg class="me-2" width=35 height=36>
+      <svg class="me-2" width="35px" height="36px">
         <use href="{% static 'images/map-svgrepo-com.svg' %}#Capa_1"></use>
       </svg>
       <select id="city-select">
@@ -61,6 +66,45 @@
           </div>
           <br>
         {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="success-modal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="successModalLabel">Buat jadwal berhasil</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <div class="modal-body">
+        <svg height="200px" width="450px">
+          <use height="200px" width="480px" href="{% static 'images/checkmark-done-svgrepo-com.svg' %}#checkmark-done"></use>
+        </svg>
+        <p id="success-message"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Failed Modal -->
+<div class="modal fade" id="failed-modal" tabindex="-1" aria-labelledby="failedModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="failedModalLabel">Buat jadwal gagal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Membuat jadwal gagal, Mohon coba lagi.<br>Jika beberapa saat kemudian masih gagal, mohon hubungi kami di kontak yang tersedia</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
       </div>
     </div>
   </div>
