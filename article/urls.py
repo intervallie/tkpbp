@@ -7,10 +7,10 @@ from django.conf import settings
 urlpatterns = [
 	path('', index, name='index'),
     path('add', add_article, name='add'),
-    path('post/<int:id>', singlePost, name='singlePost'),
+    path('artikel/<int:id>', singlePost, name='singlePost'),
 
     path('admin_view', adminView, name='admin_view'),
-    path('delete/<int:id>', delete_post, name='delete'),
+    path('delete_post', delete_post, name='delete_post'),
     path('edit/<int:id>', edit_post, name='edit'),
 ]
 

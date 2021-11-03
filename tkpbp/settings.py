@@ -45,8 +45,14 @@ INSTALLED_APPS = [
     'article',
     'consultation_form',
     'accounts',
+<<<<<<< HEAD
     'konfirmasi',
+=======
+    'crispy_forms',
+>>>>>>> 03164a43f3dbe8aa12fa2ecbe38d1ed41319cb9d
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
