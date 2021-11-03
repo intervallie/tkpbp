@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        {% block head %}
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,6 +23,7 @@
             <!-- Style CSS -->
             <link rel="stylesheet" href="{% static '../static/css/base.css' %}">
         {% endblock %}
+        {% endblock %}
     </head>
     <body class="d-flex flex-column min-vh-100">
         {% block body %}
@@ -34,7 +36,7 @@
                         <span class="navbar-brand mb-0 h1 logo">Ruang Singgah<span class="yellow">.</span></span>
                         {% if request.user.is_counselor %}
                             <li class="nav-item">
-                            <a href="{% url 'konfirmasi_konsultasi:index' %}" class="nav-link {% if nbar == 'Konfirmasi' %} active {% endif %}">Konfirmasi</a>
+                            <a href="{% url 'konfirmasi:index' %}" class="nav-link {% if nbar == 'Konfirmasi' %} active {% endif %}">Konfirmasi</a>
                             </li>
                         {% endif %}
                         <li class="nav-item">
@@ -42,13 +44,6 @@
                         </li>
                         {% if request.user.is_counselor %}
                         <li class="nav-item">
-<<<<<<< HEAD
-=======
-                            <a href="{% url 'consultation_form:index' %}" class="nav-link {% if nbar == 'Konsultasi' %} active {% endif %}">Konsultasi</a>
-                        </li>
-                        {% if request.user.is_counselor %}
-                        <li class="nav-item">
->>>>>>> 7fb4f5bad6c4fc9ac7d5c8c2ea3d943bd53092f4
                             <a href="{% url 'consultation_form:index' %}" class="nav-link {% if nbar == 'Konfirmasi' %} active {% endif %}">Konfirmasi</a>
                         </li>
                         {% endif %}
@@ -89,9 +84,11 @@
                     </ul>
                 </div>
             </nav>
+        {% block script %}
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        {% endblock %}
     </body>
     {% endblock %}
     {% block footer %}

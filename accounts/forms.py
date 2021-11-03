@@ -20,6 +20,7 @@ class MyAuthenticationForm(AuthenticationForm):
 class MyUserForm(UserCreationForm):
     def __init__(self,*args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.psikolog = False
         self.fields['name'].widget.attrs = {
             'class': 'form-control'
         }
