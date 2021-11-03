@@ -13,6 +13,7 @@
                 <h1>Konfirmasi Konsultasi</h1>
             </div>
             <div class="row">
+                {% for konsul in konsuls %}
                 <div class="card">
                     <div class="card-body">
                         <p>Nama     : {{ konsul.full_name }}</p>
@@ -25,5 +26,6 @@
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>       
     {% endblock %}

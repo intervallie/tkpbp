@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from .models import Konsultasi
+from consultation_form.models import Consultation
 from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    konsuls = Konsultasi.objects.all().values()
+    konsuls = Consultation.objects.all().values()
     response = {'konsuls' : konsuls}
     return render(request, 'konfirmasi_konsultasi.html', response)
 

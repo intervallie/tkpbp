@@ -58,6 +58,9 @@
     border-radius: 8px;
     opacity: 1;
 }
+.card-body .btn {
+    display: flex;
+}
 .btn .btn2 {
     background-color: #FF0000;
     padding: 10px 62px;
