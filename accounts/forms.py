@@ -44,7 +44,7 @@ class MyUserForm(UserCreationForm):
         user.email = self.cleaned_data['email']
         if self.is_psikolog():
             user.is_counselor = True
-            print(self.is_psikolog())
+            print(self.is_psikolog())  
         else:
             print('whyy')
         if commit:
