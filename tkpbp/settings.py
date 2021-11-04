@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'appdemo',
     'article',
     'consultation_form',
+    'quiz',
     'accounts',
     'konfirmasi',
     'crispy_forms',

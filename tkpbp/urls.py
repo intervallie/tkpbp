@@ -17,6 +17,7 @@ from django.urls import include, path, re_path
 from django.contrib import admin
 from article.views import index as index_konfirmasi
 import article.urls as article
+import quiz.urls as quiz
 import accounts.urls as accounts
 from django.conf import settings
 from django.conf.urls.static import static
@@ -27,6 +28,7 @@ urlpatterns = [
     path('artikel/', include(('article.urls','article'), namespace='article')),
     re_path(r'^$', index_konfirmasi, name='index'),
     path('consultation/', include(('consultation_form.urls', 'consultation_form'), namespace='consultation_form')),
+    path('quiz_start/',include(quiz), name='quiz start')
     # re_path(r'^$', index_article, name='index'),
 ]
 if settings.DEBUG:

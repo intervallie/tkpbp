@@ -1,3 +1,4 @@
+
 # Created by https://www.gitignore.io/api/python,intellij+iml
 
 ### Intellij+iml ###
@@ -54,6 +55,9 @@ modules.xml
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
+=======
+db.sqlite3
+>>>>>>> 46dfbe1d4a86953f2a674aee6f398653afdbee11
 __pycache__/
 *.py[cod]
 *$py.class
@@ -153,3 +157,4 @@ myenv/
 /lab-1/db.sqlite3/
 /lab-1/hello_name/migrations/*.py
 db.sqlite3
+env/
