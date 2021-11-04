@@ -9,3 +9,9 @@ class Konsultasi(models.Model):
     email = models.CharField(max_length=50)
 
     selected_accept = models.ForeignKey(Consultation, on_delete=models.CASCADE, default=None)
+
+    def delete(self, *args, **kwargs):
+        super().delete(*args, **kwargs)
+
+    def __str__(self):
+        return self.title    

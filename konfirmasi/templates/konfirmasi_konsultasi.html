@@ -22,6 +22,11 @@
                         <p>Email    : {{ konsul.email }}</p>
                         <div class="btn">
                             <a href="{% url 'konfirmasi:accept' %}" class="btn1">Accept</a>
+                            {% if request.user.is_counselor %}
+                            <li class="nav-item">
+                            <a href="{% url 'konfirmasi:index' %}" class="nav-link {% if nbar == 'Konfirmasi' %} active {% endif %}">Konfirmasi</a>
+                            </li>
+                            {% endif %}
                             <a href="{% url 'konfirmasi:reject' %}" class="btn2">Reject</a>
                         </div>
                     </div>
