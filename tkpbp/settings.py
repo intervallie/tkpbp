@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'appdemo',
     'article',
     'accounts',
+    'threader',
 ]
 
 MIDDLEWARE = [

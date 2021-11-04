@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block css %}
+        {{block.super}}
+        <link rel="stylesheet" href="{% static 'threader.css' %}">
+        <script src="{% static 'threader.js' %}"></script>
+        {% endblock %}
+        <title>Diskusi Bersama KawanSinggah.</title>
+    </head>
+    <body>
+        {% block body %}
+            {{block.super}}
+            <div class="main-content">
+                <h2 style="display: inline-block;">Diskusi Bersama KawanSinggah<span style="color: #FFC948;">.</span></h2><br>
+                    <div class="form">
+                        <h3 style="display: inline-block;">Buat Diskusi Baru</h3>
+                        <form method="POST" action="/threader/add-thread">
+                            {% csrf_token %}
+                            <button type="submit" class='button'><strong>Post</strong></button>
+                            <input type='hidden' value='/' name='next' />
+                            <textarea class="form-content" name='content' placeholder="What's happening?"></textarea>
+                        </form>
+                    </div>
+                {% for i in thread %}
+                    <div class="thread-box">
+                        <div class="sub-content">
+                            <h6>{{i.user}} {{i.date}}</h6>
+                            <p>{{i.thread}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endblock %}
+    </body>
+</html>
