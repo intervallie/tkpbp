@@ -18,12 +18,14 @@ from django.contrib import admin
 from article.views import index as index_article
 import article.urls as article
 import accounts.urls as accounts
+import donation.urls as donation
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(accounts)),
     path('artikel/', include(('article.urls','article'), namespace='article')),
+    path('donasi/', include(('donation.urls','donation'), namespace='donation')),
     # re_path(r'^$', index_article, name='index'),
 
 
