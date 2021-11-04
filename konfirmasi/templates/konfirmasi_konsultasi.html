@@ -13,17 +13,19 @@
                 <h1>Konfirmasi Konsultasi</h1>
             </div>
             <div class="row">
+                {% for konsul in konsuls %}
                 <div class="card">
                     <div class="card-body">
                         <p>Nama     : {{ konsul.full_name }}</p>
                         <p>NPM      : {{ konsul.npm }}</p>
                         <p>Waktu    : {{ konsul.date }}</p>
                         <p>Email    : {{ konsul.email }}</p>
-                        <div class="btn">
-                            <a href="{% url 'konfirmasi:accept' %}" class="btn1">Accept</a>
-                            <a href="{% url 'konfirmasi:reject' %}" class="btn2">Reject</a>
+                        <div class="btn d-flex justify-content-center">
+                            <a href="{% url 'konfirmasi:accept' %}" class="btn1 text-center">Accept</a>
+                            <a href="{% url 'konfirmasi:reject' %}" class="btn2 text-center">Reject</a>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>       
     {% endblock %}

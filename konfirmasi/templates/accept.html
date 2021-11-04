@@ -2,6 +2,7 @@
 {% load static %}
     {% block css %}
     {{block.super}}
+    <link rel="stylesheet" href="{% static '../static/token.css' %}">
     {% endblock %}
     {% block body %}
         {{block.super}}
