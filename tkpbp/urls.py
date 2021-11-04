@@ -21,7 +21,7 @@ import accounts.urls as accounts
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('konfirmasi/', include(('konfirmasi.urls','konfirmasi'),namespace='konfirmasi')),
     path('',include(accounts)),
     path('artikel/', include(('article.urls','article'), namespace='article')),
