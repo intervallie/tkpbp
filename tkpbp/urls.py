@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(accounts)),
     path('artikel/', include(('article.urls','article'), namespace='article')),
-    path('quiz_start/',include(quiz))
+    path('quiz_start/',include(quiz), name='quiz start')
     # re_path(r'^$', index_article, name='index'),
 
 

@@ -152,16 +152,17 @@ Dalam sebulan terakhir, seberapa sering Anda merasa ada banyak kesulitan yang me
         console.log(score)
         if(score<=20){
             $("#box").load("{% url 'hasil' %} #ringan");
-            return
+            
         }
-        if(score<40){
+        else if(score<40){
             $("#box").load("{% url 'hasil' %} #sedang");
-            return
+            
         }
         else{
             $("#box").load("{% url 'hasil' %} #berat");
-            return
+            
         }
-
+        $("#form").load("{% url 'hasil' %} #form1")
+        return
     }
 </script>
