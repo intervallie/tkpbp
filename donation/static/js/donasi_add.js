@@ -3,7 +3,7 @@ const form = document.getElementById('p-form')
 
 const nama = document.getElementById('id_nama')
 const nominal = document.getElementById('id_nominal')
-const bukti = document.getElementById('id_bukti')
+const bukti = document.getElementById('id_bukti_Transfer')
 
 const csrf = document.getElementsByName('csrfmiddlewaretoken')
 console.log(csrf)
