@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body %}
+ {{block.super}}
+ <center>
+<div class="container" id='form1' style="width: 30%;">
+    <form action='' method='POST' style="align-items: center; font-size: medium;">
+        <center>tinggal kan saran untuk kuis ini !</center>
+        {% csrf_token %}
+        {{form.Saran}}
+        <br>
+        <center><input type='submit' value='Save' /></center>
+        <br>
+        <br>
+        <br>
+    Terimakasih sudah menggunakan quiz Tes kesehatan mental
+    <br>
+    <br>
+    <br>
+    </form>
+</div>
+</center>
+{% endblock %}
