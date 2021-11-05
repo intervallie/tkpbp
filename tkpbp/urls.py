@@ -28,6 +28,10 @@ urlpatterns = [
     # re_path(r'^$', index_konfirmasi, name='index'),
     path('consultation/', include(('consultation_form.urls', 'consultation_form'), namespace='consultation_form')),
     # re_path(r'^$', index_article, name='index'),
+    path('donasi/', include(('donation.urls', 'donation'), namespace='donasi')),
+    path('threader/', include(('threader.urls', 'threader'), namespace='diskusi')),
+    path('quiz/', include('quiz.urls')),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

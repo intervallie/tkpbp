@@ -44,9 +44,14 @@ INSTALLED_APPS = [
     'appdemo',
     'article',
     'consultation_form',
+    'donation',
     'accounts',
     'konfirmasi',
+    'threader',
+    'quiz',
     'crispy_forms',
+    'rest_framework',
+    
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -152,3 +157,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Override User model
 AUTH_USER_MODEL = 'accounts.Account'
+
+MAX_THREAD_LENGTH = 280

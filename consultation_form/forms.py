@@ -10,5 +10,5 @@ class ConsForm(ModelForm):
         fields = ('full_name', 'npm', 'date', 'email')
         widgets = {'full_name': TextInput(attrs={'class': 'form-control border-dark mb-5'}),
                    'npm': TextInput(attrs={'class': 'form-control border-dark mb-5'}),
-                   'date': DateInput(attrs={'class': 'form-control border-dark mb-5', 'type': 'date', 'min': date.today().strftime("%Y-%m-") + str((int(date.today().strftime("%d")) + 1))}),
+                   'date': DateInput(attrs={'class': 'form-control border-dark mb-5', 'type': 'date', 'min': date.today().strftime("%Y-%m-") + "{:0>2}".format(str((int(date.today().strftime("%d")) + 1)))}),
                    'email': TextInput(attrs={'class': 'form-control border-dark mb-5'})}
