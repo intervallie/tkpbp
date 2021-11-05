@@ -133,7 +133,7 @@ function unlikeButton(thread) {
 }
 function retweetButton(thread) {
     return "<button class='btn btn-outline-success btn-sm' onclick=handleThreadActionButton(" +
-    thread.id + "," + thread.likes + ",'retweet')>ReTweet</button>"
+    thread.id + "," + thread.likes + ",'retweet')>Retweet</button>"
 }
 function formatThreadElement(thread) {
     var formattedThread = "<div class='mb-4 thread' id='thread-" + thread.id

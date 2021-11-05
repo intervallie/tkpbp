@@ -33,7 +33,9 @@
                             <img src={% static 'woman4.png' %}>
                             <h6>{{i.user}} {{i.timestamp}}</h6>
                             <p>{{i.content}}</p>
-                            <script></script>
+                            <button class='btn btn-primary btn-sm' onclick=handleThreadActionButton(thread.id, thread.likes, like)>Like</button>
+                            <button class='btn btn-outline-primary btn-sm' onclick=handleThreadActionButton(thread.id, thread.likes, unlike)>Unlike</button>
+                            <button class='btn btn-outline-success btn-sm' onclick=handleThreadActionButton(thread.id, thread.likes, retweet)>Retweet</button>
                         </div>
                     </div>
                 {% endfor %}
