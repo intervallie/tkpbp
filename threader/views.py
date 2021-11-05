@@ -12,7 +12,7 @@ from rest_framework.response import Response
 from .models import Thread, User
 from .forms import ThreadForm
 from django.contrib.auth.decorators import login_required
-from .serializers import ThreadActionSerializer, ThreadSerializer
+from .serializers import ThreadActionSerializer, ThreadSerializer, ThreadCreateSerializer
 
 ALLOWED_HOSTS = settings.ALLOWED_HOSTS
 
@@ -32,7 +32,7 @@ def thread_list(request, *args, **kwargs):
 # @authentication_classes([SessionAuthentication])
 @permission_classes([IsAuthenticated])
 def add_thread(request, *args, **kwargs):
-    serializer = ThreadSerializer(data=request.POST or None)
+    serializer = ThreadCreateSerializer(data=request.POST or None)
     if serializer.is_valid(raise_exception=True):
         serializer.save(user=request.user)
         return redirect('/threader/') # Response(serializer.data, status=201)
@@ -68,6 +68,7 @@ def thread_action(request, *args, **kwargs):
         data = serializer.validated_data
         thread_id = data.get("id")
         action = data.get("action")
+        content = data.get("content")
         qs = Thread.objects.filter(id=thread_id)
         if not qs.exists():
             return Response({}, status=404)
@@ -79,7 +80,13 @@ def thread_action(request, *args, **kwargs):
         elif action == "unlike":
             obj.likes.remove(request.user)
         elif action == "retweet":
-            pass
+            new_thread = Thread.objects.create(
+                    user=request.user,
+                    parent=obj,
+                    conten=content)
+            serializer = ThreadSerializer(new_thread)
+            return Response(serializer.data, status=200)
+
     return Response({}, status=200)
 
 def thread_list_pure_django(request, *args, **kwargs):
