@@ -43,10 +43,11 @@
                             <li class="nav-item">
                             <a href="{% url 'konfirmasi:index' %}" class="nav-link {% if nbar == 'Konfirmasi' %} active {% endif %}">Konfirmasi</a>
                             </li>
-                        {% endif %}
+                        {% else %}
                         <li class="nav-item">
                             <a href="{% url 'consultation_form:index' %}" class="nav-link {% if nbar == 'Konsultasi' %} active {% endif %}">Konsultasi</a>
                         </li>
+                        {% endif %}
                         <li class="nav-item">
                             <a href="{% url 'article:index' %}" class="nav-link {% if nbar == 'Artikel' %} active {% endif %}">Artikel</a>
                         </li>
