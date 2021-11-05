@@ -23,7 +23,7 @@ form.addEventListener('submit', e => {
     fd.append('csrfmiddlewaretoken', csrf[0].value)
     fd.append('nama', nama.value)
     fd.append('nominal', nominal.value)
-    fd.append('bukti', bukti.files[0])
+    //fd.append('bukti', bukti.files[0])
 
     $.ajax({
         type: 'POST',
