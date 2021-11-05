@@ -17,13 +17,19 @@
                 <h2 style="display: inline-block;">Diskusi Bersama KawanSinggah<span style="color: #FFC948;">.</span></h2><br>
                     <div class="form">
                         <h3 style="display: inline-block;">Buat Diskusi Baru</h3>
-                        <form method="POST" action="/threader/add-thread">
+                        <form id='thread-create-form' method="POST" action="/threader/add-thread">
                             {% csrf_token %}
+                            <div class='d-none alert alert-danger' id='thread-create-form-error'></div>
                             <button type="submit" class='button'><strong>Post</strong></button>
                             <input type='hidden' value='/' name='next' />
-                            <textarea class="form-content" name='content' placeholder="What's happening?"></textarea>
+                            <textarea required='required' class="form-content" name='content' placeholder="What's happening?"></textarea>
                         </form>
                     </div>
+
+                    <div class='row' id='threads'>
+                        Loading...
+                    </div>
+
                 {% for i in thread %}
                     <div class="thread-box">
                         <div class="sub-content">
