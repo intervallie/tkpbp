@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(255, 255, 255);
+}
+
+.no-gutter {
+    background: rgb(255, 255, 255);
+    border-radius: 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+img {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+h1 {
+    color: rgb(0, 0, 0);
+    font-family: 'Inter', sans-serif;
+    font-size: 43px;
+    font-weight: 600;
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+
+h4 {
+    margin-right: 5%;
+}
+
+button {
+    margin-right: auto;
+    margin-top: 5%;
+    color: black;
+    padding: 10px 32px;
+    margin-bottom: 15px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Inter';
+    font-weight: bold;
+    display: flex;
+    font-size: 20px;
+    transition-duration: 0.3s;
+    background-color: rgb(255, 201, 71);
+    border: 3px;
+    border-color: blue;
+    border-radius: 15px;
+}
+
+button:hover {
+    background-color: rgb(253, 162, 44);
+    color: black;
+}

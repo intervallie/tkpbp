@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% block css %} {{block.super}}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/donasi_index.css' %}"> {% endblock %}
+    <title>Buat Donasi</title>
+
+</head>
+
+{% block body %} {{block.super}}
+<section class="Form my-4 mx-5">
+    <div class="container">
+        <div class="row no-gutter">
+            <div class="col-lg-7">
+                <h1>Bantu RuangSinggah. untuk dapat terus singgah di hatimu</h1>
+                <p>Dengan membantu RuangSinggah, kamu dapat membantu meningkatkan kesadaran tentang kesehatan mental di lingkungan kampus kita!</p>
+                <button class="button" type="button" onclick="addDonasi()">
+                    Donasi sekarang
+                    <script>
+                        function addDonasi(){
+                          window.location.href="http://localhost:8000/donasi/buat-donasi/";
+                        }
+                      </script>
+                </button>
+            </div>
+            <div class="col-lg-5">
+                <img src="{% static 'images/donationjar.png'%}" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+{% endblock %}
+
+</html>
