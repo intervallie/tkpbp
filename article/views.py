@@ -13,6 +13,7 @@ def index(request):
 def add_article(request):
     form = ArticleForm(request.POST or None, request.FILES or None)
     if form.is_valid():
+        print(request.FILES)
         form.save()
         return redirect('..')
     return render(request, "article_add.html", {'form': form})
