@@ -5,13 +5,14 @@ from django.conf import settings
 from django.shortcuts import render, redirect
 from rest_framework import serializers
 from rest_framework import permissions
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import action, api_view, authentication_classes, permission_classes
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import SessionAuthentication
 from rest_framework.response import Response
-from .models import Thread
+from .models import Thread, User
 from .forms import ThreadForm
 from django.contrib.auth.decorators import login_required
-from .serializers import ThreadSerializer
+from .serializers import ThreadActionSerializer, ThreadSerializer
 
 ALLOWED_HOSTS = settings.ALLOWED_HOSTS
 
@@ -28,12 +29,13 @@ def thread_list(request, *args, **kwargs):
     return Response(serializer.data, status=200)
 
 @api_view(['POST'])
+# @authentication_classes([SessionAuthentication])
 @permission_classes([IsAuthenticated])
 def add_thread(request, *args, **kwargs):
     serializer = ThreadSerializer(data=request.POST or None)
     if serializer.is_valid(raise_exception=True):
         serializer.save(user=request.user)
-        return Response(serializer.data, status=201)
+        return redirect('/threader/') # Response(serializer.data, status=201)
     return Response({}, status=400)
 
 @api_view(['GET'])
@@ -44,6 +46,41 @@ def thread_detail(request, thread_id, *args, **kwargs):
     obj = qs.first()
     serializer = ThreadSerializer(obj)
     return Response(serializer.data, status=200)
+
+@api_view(['DELETE', 'POST'])
+@permission_classes([IsAuthenticated])
+def thread_delete(request, thread_id, *args, **kwargs):
+    qs = Thread.objects.filter(id=thread_id)
+    if not qs.exists():
+        return Response({}, status=404)
+    qs = qs.filter(user=request.user)
+    if not qs.exists():
+        return Response({"message": "You cannot delete this thread"}, status=401)
+    obj = qs.first()
+    obj.delete()
+    return Response({"message": "Thread removed"}, status=200)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def thread_action(request, *args, **kwargs):
+    serializer = ThreadActionSerializer(data=request.data)
+    if serializer.is_valid(raise_exception=True):
+        data = serializer.validated_data
+        thread_id = data.get("id")
+        action = data.get("action")
+        qs = Thread.objects.filter(id=thread_id)
+        if not qs.exists():
+            return Response({}, status=404)
+        obj = qs.first()
+        if action == "like":
+            obj.likes.add(request.user)
+            serializer = ThreadSerializer(obj)
+            return Response(serializer.data, status=200)
+        elif action == "unlike":
+            obj.likes.remove(request.user)
+        elif action == "retweet":
+            pass
+    return Response({}, status=200)
 
 def thread_list_pure_django(request, *args, **kwargs):
     qs = Thread.objects.all()

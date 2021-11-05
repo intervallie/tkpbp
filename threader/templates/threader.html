@@ -29,9 +29,10 @@
                 {% for i in thread %}
                     <div class="thread-box">
                         <div class="sub-content">
-                            <h6>{{i.user}} {{i.date}}</h6>
+                            <h6>{{i.user}} {{i.timestamp}}</h6>
                             <p>{{i.content}}</p>
                             <img src="media/{{ BASIC_DIR }}/{{i.image}}" alt="">
+                            {{i.likes}}
                         </div>
                     </div>
                 {% endfor %}

@@ -1,3 +1,19 @@
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
 function handleThreadFormError(msg, display) {
     var myErrorDiv = document.getElementById("thread-create-form-error")
     if (display === true) {
@@ -86,17 +102,46 @@ function loadThreads(threadsElement) {
 
 loadThreads(threadsContainerElement)
 
-function handleDidLike(thread_id, currentCount) {
+function handleThreadActionButton(thread_id, currentCount, action) {
     console.log(thread_id, currentCount)
+    const url = "/action"
+    const method = "POST"
+    const data = JSON.stringify({
+        id: thread_id,
+        action: action
+    })
+    const xhr = new XMLHttpRequest()
+    const csrftoken = getCookie('csrftoken');
+    xhr.open(method, url)
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.setRequestHeader("HTTP_X_REQUESTED_WITH", "XMLHttpRequest")
+    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest")
+    xhr.setRequestHeader("X-CSRFToken", csrftoken)
+    xhr.onload = function() {
+        loadThreads(threadsContainerElement)
+    }
+    xhr.send(data)
+    return
 }
 function likeButton(thread) {
-    return "<button class='button btn-sm' onclick=handleDidLike(" +
-    thread.id + "," + thread.likes + ")>" + thread.likes + "Like</button>"
+    return "<button class='btn btn-primary btn-sm' onclick=handleThreadActionButton(" +
+    thread.id + "," + thread.likes + ",'like')>" + thread.likes + "Like</button>"
+}
+function unlikeButton(thread) {
+    return "<button class='btn btn-outline-primary btn-sm' onclick=handleThreadActionButton(" +
+    thread.id + "," + thread.likes + ",'unlike')>Unlike</button>"
+}
+function retweetButton(thread) {
+    return "<button class='btn btn-outline-success btn-sm' onclick=handleThreadActionButton(" +
+    thread.id + "," + thread.likes + ",'retweet')>ReTweet</button>"
 }
 function formatThreadElement(thread) {
     var formattedThread = "<div class='mb-4 thread' id='thread-" + thread.id
     + "'><p>" + thread.content +
-        "</p><div class='btn-group'>" + likeButton(thread) +
+        "</p><div class='btn-group'>" +
+            likeButton(thread) +
+            unlikeButton(thread) +
+            retweetButton(thread) +
         "</p></div>"
     return formatThread
 }
