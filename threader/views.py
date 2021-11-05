@@ -1,10 +1,17 @@
+import json
 from django.http.response import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.utils.http import is_safe_url
 from django.conf import settings
 from django.shortcuts import render, redirect
+from rest_framework import serializers
+from rest_framework import permissions
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 from .models import Thread
 from .forms import ThreadForm
 from django.contrib.auth.decorators import login_required
+from .serializers import ThreadSerializer
 
 ALLOWED_HOSTS = settings.ALLOWED_HOSTS
 
@@ -14,7 +21,31 @@ def index(request, *args, **kwargs):
     response = {'thread':thread,'nbar':'Diskusi'}
     return render(request, 'threader.html', response, status=200)
 
+@api_view(['GET'])
 def thread_list(request, *args, **kwargs):
+    qs = Thread.objects.all()
+    serializer = ThreadSerializer(qs, many=True)
+    return Response(serializer.data, status=200)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_thread(request, *args, **kwargs):
+    serializer = ThreadSerializer(data=request.POST or None)
+    if serializer.is_valid(raise_exception=True):
+        serializer.save(user=request.user)
+        return Response(serializer.data, status=201)
+    return Response({}, status=400)
+
+@api_view(['GET'])
+def thread_detail(request, thread_id, *args, **kwargs):
+    qs = Thread.objects.filter(id=thread_id)
+    if not qs.exists():
+        return Response({}, status=404)
+    obj = qs.first()
+    serializer = ThreadSerializer(obj)
+    return Response(serializer.data, status=200)
+
+def thread_list_pure_django(request, *args, **kwargs):
     qs = Thread.objects.all()
     thread_list = [x.serialize() for x in qs]
     data = {
@@ -23,7 +54,7 @@ def thread_list(request, *args, **kwargs):
     }
     return JsonResponse(data)
 
-def add_thread(request, *args, **kwargs):
+def add_thread_pure_django(request, *args, **kwargs):
     user = request.user
     if not request.user.is_authenticated:
         user = None
@@ -49,7 +80,7 @@ def add_thread(request, *args, **kwargs):
         return JsonResponse(form.errors, status=400)
     return render(request, "forms.html", context={"form": form})
 
-def thread_detail(request, thread_id, *args, **kwargs):
+def thread_detail_pure_django(request, thread_id, *args, **kwargs):
     data = {
         "id": thread_id,
     }

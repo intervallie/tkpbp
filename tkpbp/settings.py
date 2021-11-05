@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'article',
     'accounts',
     'threader',
+    # third-party
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

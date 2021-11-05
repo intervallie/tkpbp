@@ -45,6 +45,9 @@ function handleThreadCreateFormDidSubmit(event) {
         } else if (xhr.status === 401) {
             alert("You must login!")
             window.location.href = "/login"
+        } else if (xhr.status === 403) {
+            alert("You must login!")
+            window.location.href = "/login"
         } else if (xhr.status === 500) {
             alert("There was a server error, please try again.")
         }
@@ -69,7 +72,7 @@ function loadThreads(threadsElement) {
     xhr.open(method, url)
     xhr.onload = function() {
         const serverResponse = xhr.response
-        var listedItems = serverResponse.response
+        var listedItems = serverResponse
         var finalThreadStr = ""
         var i;
         for (i = 0; i < listedItems.length; i++) {
