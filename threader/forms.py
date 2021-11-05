@@ -1,7 +1,8 @@
 from django import forms
 from .models import Thread
+from django.conf import settings
 
-MAX_THREAD_LENGTH = 280
+MAX_THREAD_LENGTH = settings.MAX_THREAD_LENGTH
 
 class ThreadForm(forms.ModelForm):
     class Meta:

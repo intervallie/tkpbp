@@ -24,6 +24,12 @@ def thread_list(request, *args, **kwargs):
     return JsonResponse(data)
 
 def add_thread(request, *args, **kwargs):
+    user = request.user
+    if not request.user.is_authenticated:
+        user = None
+        if request.is_ajax():
+            return JsonResponse({}, status=401)
+        return redirect(settings.LOGIN_URL)
     # create object of form
     form = ThreadForm(request.POST or None, request.FILES or None)
     next_url = request.POST.get("next") or None
@@ -32,6 +38,7 @@ def add_thread(request, *args, **kwargs):
     if request.method == "POST" and form.is_valid():
         # save the form data to model
         obj = form.save(commit=False)
+        obj.user = user
         obj.save()
         if request.is_ajax():
             return JsonResponse(obj.serialize(), status=201)

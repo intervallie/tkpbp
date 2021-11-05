@@ -28,7 +28,8 @@ SECRET_KEY = 'django-insecure-%e^l3#j+(d=7%lp8uo8qeo)!o_=qx0#s(u3cco1%f2ips2ck3p
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+LOGIN_URL = "/login"
+MAX_THREAD_LENGTH = 280
 
 
 

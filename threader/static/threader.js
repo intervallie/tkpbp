@@ -42,6 +42,9 @@ function handleThreadCreateFormDidSubmit(event) {
             } else {
                 alert("An error occured. Please try again.")
             }
+        } else if (xhr.status === 401) {
+            alert("You must login!")
+            window.location.href = "/login"
         } else if (xhr.status === 500) {
             alert("There was a server error, please try again.")
         }
