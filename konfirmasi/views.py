@@ -8,7 +8,7 @@ from django.http import HttpResponse, JsonResponse
 @login_required
 def index(request):
     konsuls = Consultation.objects.all().values()
-    response = {'konsuls' : konsuls}
+    response = {'konsuls' : konsuls,'nbar' : 'Konfirmasi'}
     return render(request, 'konfirmasi_konsultasi.html', response)
 
 def stringpurifier(words):
@@ -20,13 +20,13 @@ def stringpurifier(words):
 
 @csrf_exempt
 def delete_post(request):
-    title=stringpurifier(request.POST.get("accept")) 
+    full_name = stringpurifier(request.POST.get("full_name")) 
     try:
-        Consultation.objects.get(title=title).delete()
-        konsultasi_data={"error":False,"errorMessage":"Deleted Successfully", "accept":accept}
+        Consultation.objects.get(full_name=full_name).delete()
+        konsultasi_data={"error":False,"errorMessage":"Deleted Successfully", "full_name":full_name}
         return JsonResponse(konsultasi_data,safe=False)
     except:
-        konsultasi_data={"error":True,"errorMessage":"Failed to Delete Data", "accept":accept}
+        konsultasi_data={"error":True,"errorMessage":"Failed to Delete Data", "full_name":full_name}
         return JsonResponse(konsultasi_data,safe=False)
 
 def accept(request):

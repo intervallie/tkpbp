@@ -22,11 +22,11 @@ import accounts.urls as accounts
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('konfirmasi/', include(('konfirmasi.urls', 'konfirmasi'), namespace='konfirmasi')),
+    # path('admin/', admin.site.urls),
+    path('konfirmasi/', include(('konfirmasi.urls','konfirmasi'),namespace='konfirmasi')),
     path('',include(accounts)),
     path('artikel/', include(('article.urls','article'), namespace='article')),
-    re_path(r'^$', index_konfirmasi, name='index'),
+    # re_path(r'^$', index_konfirmasi, name='index'),
     path('consultation/', include(('consultation_form.urls', 'consultation_form'), namespace='consultation_form')),
     path('quiz_start/',include(quiz), name='quiz start')
     # re_path(r'^$', index_article, name='index'),
