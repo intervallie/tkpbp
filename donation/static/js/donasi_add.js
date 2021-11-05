@@ -3,7 +3,7 @@ const form = document.getElementById('p-form')
 
 const nama = document.getElementById('id_nama')
 const nominal = document.getElementById('id_nominal')
-const bukti = document.getElementById('id_bukti')
+const bukti = document.getElementById('id_bukti_Transfer')
 
 const csrf = document.getElementsByName('csrfmiddlewaretoken')
 console.log(csrf)
@@ -23,7 +23,7 @@ form.addEventListener('submit', e => {
     fd.append('csrfmiddlewaretoken', csrf[0].value)
     fd.append('nama', nama.value)
     fd.append('nominal', nominal.value)
-    //fd.append('bukti', bukti.files[0])
+    fd.append('bukti', bukti.files[0])
 
     $.ajax({
         type: 'POST',
