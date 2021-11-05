@@ -2,3 +2,5 @@ db.sqlite3
 __pycache__/
 myenv/
 env/
+0001_initial.py
+0002_alter_suggestion_saran.py
