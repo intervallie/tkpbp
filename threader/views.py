@@ -10,6 +10,15 @@ def index(request, *args, **kwargs):
     response = {'thread':thread,'nbar':'Diskusi'}
     return render(request, 'threader.html', response, status=200)
 
+def thread_list(request, *args, **kwargs):
+    qs = Thread.objects.all()
+    thread_list = [{"id": x.id, "content": x.content, "likes": 0} for x in qs]
+    data = {
+        "isUser": False,
+        "response": thread_list
+    }
+    return JsonResponse(data)
+
 def add_thread(request, *args, **kwargs):
     context = {}
     # create object of form

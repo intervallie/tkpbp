@@ -6,7 +6,7 @@ MAX_THREAD_LENGTH = 280
 class ThreadForm(forms.ModelForm):
     class Meta:
         model = Thread
-        fields = "__all__"
+        fields = ["content"]
 
     def validate(self):
         content = self.cleaned_data.get("content")
