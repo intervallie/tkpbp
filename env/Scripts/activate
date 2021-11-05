@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\USER\Documents\PBP_Assignment\tk-pbp\env"
+VIRTUAL_ENV="C:\Users\USER\Documents\PBP_Assignment\tkpbp-gabung\tkpbp\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

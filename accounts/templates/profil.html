@@ -2,14 +2,23 @@
 {% load static %}
 {% block body %}
     {{block.super}}
-    {{request.user.name}}
-    {{request.user.email}}
-    {% if request.user.is_counselor %}
-        {{request.user.biopsikolog.domisili}}
-        {{request.user.biopsikolog.bio}}
-        {% for data in request.user.biopsikolog.values %}
-            <p>{{data}}</p>
-        {% endfor %}
-    {% endif %}
-    {{request.user.biopsikologs}}
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card m-5 ">
+                <div class="card-header text-center">Profil</div>
+                <div class="card-body">
+                    <p class="card-text">Nama:{{request.user.name}}</p>
+                    <p class="card-text">Email: {{request.user.email}}</p>
+                    {% if request.user.is_counselor %}
+                        <p class="card-text">Domisili: {{request.user.biopsikolog.domisili}}</p>
+                        <p class="card-text">Bio: <br> {{request.user.biopsikolog.bio}}</p>
+        
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
 {% endblock %}
