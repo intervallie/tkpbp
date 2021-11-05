@@ -16,6 +16,7 @@
             <div class="main-content">
                 <h2 style="display: inline-block;">Diskusi Bersama KawanSinggah<span style="color: #FFC948;">.</span></h2><br>
                     <div class="form">
+                        <img src={% static 'woman4.png' %}>
                         <h3 style="display: inline-block;">Buat Diskusi Baru</h3>
                             <form id='thread-create-form' method="POST" action="/threader/add-thread">
                                 {% csrf_token %}
@@ -29,9 +30,10 @@
                 {% for i in thread %}
                     <div class="thread-box">
                         <div class="sub-content">
+                            <img src={% static 'woman4.png' %}>
                             <h6>{{i.user}} {{i.timestamp}}</h6>
                             <p>{{i.content}}</p>
-                            <img src="media/{{ BASIC_DIR }}/{{i.image}}" alt="">
+                            <script></script>
                         </div>
                     </div>
                 {% endfor %}
