@@ -18,9 +18,9 @@ def index(request):
                  'Tangerang',
                  'Bekasi']
     psikolog_list = BioPsikolog.objects.all()
-    response = {'consultation_form': consultation_form, 
+    response = {'consultation_form': consultation_form,
                 'city_list': city_list,
-                'psikolog_list' : psikolog_list, 
+                'psikolog_list' : psikolog_list,
                 'nbar': 'Konsultasi'
                 }
     return render(request, "consultation_form_index.html", response)
@@ -33,6 +33,10 @@ def get_counselor(request, city=None):
         print(counselor)
         print(counselor_bio)
         counselor_object = [*counselor,*counselor_bio]
+        # If there is no counselor (List is empty)
+        if not counselor_object:
+            # Return error 404 not found
+            return JsonResponse({}, status=404)
         print(type(counselor_object))
         data = serializers.serialize('json', counselor_object)
         print(data)

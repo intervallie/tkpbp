@@ -67,7 +67,7 @@ $.extend({
                                 </div>
                                 <div class="card-body mt-4">
                                     <div class="d-flex justify-content-end">
-                                    <button type="submit" form="consultation_form" class="btn btn-primary cs-button-submit" data-pk="${x["pk"]}">Buat jadwal</button>
+                                    <button type="button" form="consultation_form" class="btn btn-primary cs-button-submit" data-pk="${x["pk"]}" data-counselor-name="${accountFields["name"]}">Buat jadwal</button>
                                     </div>
                                 </div>
                                 </div>
@@ -78,7 +78,7 @@ $.extend({
                         fadeEffect.fadeIn(500);
                         await sleep(100);
                     }
-                    
+
                 }
             },
             error: async function(response) {
