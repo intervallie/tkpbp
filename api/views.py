@@ -14,6 +14,7 @@ from konfirmasi.models import Konsultasi
 from donation.models import Donasi
 from django.http import HttpResponse
 from django.http import FileResponse
+from rest_framework import generics
 
 from consultation_form.models import Consultation
 from .serializers import *
@@ -130,6 +131,7 @@ class KonfirmasiAPI(APIView):
                 'message': 'Something happened',
                 'error': str(e)
                 }
+        return Response(response,status = status_code)
 
 class ArticleAPI(APIView):
     def get_permissions(self):
@@ -141,7 +143,8 @@ class ArticleAPI(APIView):
         else:
             permission_classes = [IsAuthenticated & (IsAdminUser | IsPsikolog)]
         return [permission() for permission in permission_classes]
-    #     
+
+
     def get(self,request):
         try:
             fields = [f.name for f in Article._meta.get_fields()]
@@ -412,6 +415,15 @@ class DonasiAPI(APIView):
                 }
             return Response(response,status=status_code)
 
+class MahasiswaAPI(generics.CreateAPIView):
+    queryset = User.objects.all()
+    permission_classes = []
+    serializer_class = RegisterSerializer
+
+class PsikologAPI(generics.CreateAPIView):
+    queryset = BioPsikolog.objects.all()
+    permission_classes = []
+    serializer_class = BioPsikologSerializer
 
 
 
