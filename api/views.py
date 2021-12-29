@@ -166,7 +166,7 @@ class ArticleAPI(APIView):
                 'message': 'Something happened',
                 'error': str(e)
                 }
-        return Response(response,status=status_code)
+        return Response(data,status=status_code)
     
     def post(self,request):
         try:
