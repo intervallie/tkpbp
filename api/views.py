@@ -37,7 +37,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['name'] = user.name
         token['is_counselor'] = user.is_counselor
         if user.is_counselor:
-            token['domisili'] = user.biopsikolog.domisili
+            token['domisili'] = user.biopsikolog.domisili   
             token['bio'] = user.biopsikolog.bio
         # ...
 
