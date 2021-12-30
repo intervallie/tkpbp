@@ -17,7 +17,6 @@ urlpatterns = [
     path('registrasi/psikolog',PsikologAPI.as_view(), name = 'registrasi-psikolog'),
     path('artikel',ArticleAPI.as_view(),name = 'artikel-get'),
     path('artikel/<int:pk>',ArticleAPI.as_view(),name = 'artikel-other'),
-    path('artikel/photo',PhotoAPI.as_view(),name = 'photo'),
     path('saran',SuggestionAPI.as_view(),name = 'saran'),
     path('konsultasi',ConsultationAPI.as_view(), name = 'konsultasi'),
     path('donasi',DonasiAPI.as_view(), name = 'donasi')

@@ -142,14 +142,13 @@ class ArticleAPI(APIView):
         if self.request.method == 'GET':
             permission_classes = []
         else:
-            permission_classes = [IsAuthenticated & (IsAdminUser | IsPsikolog)]
+             permission_classes = [IsAuthenticated & (IsAdminUser | IsPsikolog)]
         return [permission() for permission in permission_classes]
 
 
     def get(self,request):
         try:
             fields = [f.name for f in Article._meta.get_fields()]
-            fields.remove('photo')
             data = Article.objects.all().values(*fields)
             status_code = status.HTTP_200_OK
             response = {
@@ -222,21 +221,6 @@ class ArticleAPI(APIView):
                 }
         return Response(response,status=status_code)
 
-class PhotoAPI(APIView):
-    def get(self,request):
-        try:
-            id_article = int(request.query_params['id']) 
-            image = Article.objects.filter(id=id_article).first().photo
-            return FileResponse(image)
-        except Exception as e:
-            status_code = status.HTTP_400_BAD_REQUEST
-            response = {
-                'success': 'false',
-                'status code': status.HTTP_400_BAD_REQUEST,
-                'message': 'Something happened',
-                'error': str(e)
-                }
-        return Response(response,status=status_code)
 
 class SuggestionAPI(APIView):
     def get_permissions(self):

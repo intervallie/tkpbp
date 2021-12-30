@@ -8,7 +8,7 @@ class Article(models.Model):
     date = models.DateTimeField(auto_now=True)
     desc = models.CharField(max_length = 300)
     article = models.TextField()
-    photo = models.ImageField(upload_to='images/')
+    photo = models.TextField()
 
     def __str__(self):
         return self.title
