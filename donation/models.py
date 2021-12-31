@@ -12,7 +12,7 @@ NOMINAL_CHOICES = [
 class Donasi(models.Model):
     nama = models.CharField(max_length=100)
     nominal = models.CharField(choices=NOMINAL_CHOICES, default='Rp50.000', max_length=12)
-    bukti_Transfer = models.ImageField(upload_to='images/')
+    bukti_Transfer = models.TextField()
 
     def __str__(self):
         return self.nama
