@@ -365,7 +365,6 @@ class DonasiAPI(APIView):
     def get(self,request):
         try:
             fields = [f.name for f in Donasi._meta.get_fields()]
-            fields.remove('bukti_Transfer')
             data = Donasi.objects.all().values(*fields)
             status_code = status.HTTP_200_OK
             response = {
