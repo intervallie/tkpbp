@@ -40,3 +40,5 @@ class ThreadSerializer(serializers.ModelSerializer):
 
     def get_likes(self, obj):
         return obj.likes.count()
+    def get_parent(self, obj):
+        return obj.id
