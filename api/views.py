@@ -145,6 +145,14 @@ class ArticleAPI(APIView):
              permission_classes = [IsAuthenticated & (IsAdminUser | IsPsikolog)]
         return [permission() for permission in permission_classes]
 
+    def put(self, request, pk):
+        snippet = Article.objects.get(pk=pk)
+        print(snippet.title)
+        serializer = ArtikelPhotoSerializer(snippet, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self,request):
         try:
@@ -221,6 +229,7 @@ class ArticleAPI(APIView):
                 }
         return Response(response,status=status_code)
 
+    
 
 class SuggestionAPI(APIView):
     def get_permissions(self):
